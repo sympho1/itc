@@ -1,0 +1,189 @@
+<MainScreen>:
+
+
+<Bckgd@BoxLayout>:
+    source: ''
+    canvas.before:
+        BorderImage:
+            source: self.source
+            pos: self.pos
+            size: self.size
+
+
+<But@Button>:
+    font_size: '22sp'
+    border: 10, 10, 10, 10
+    background_disabled_normal: 'img/btn/but_disabled.png'
+    background_disabled_down: 'img/btn/but_disabled.png'
+
+<HomeScreen>:
+    Bckgd:
+        source: 'img/world.jpg'
+
+    GridLayout:
+        id: grid
+        padding: 4
+        spacing: 2, 4
+        cols: 2
+        row_force_default: True
+        row_default_height: 100
+    GridLayout:
+        cols: 2
+
+<ConnexionScreen>:
+    Bckgd:
+        source: 'img/adobe2.jpg'
+        FloatLayout:
+            BoxLayout:
+                pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+                size_hint: (.7, .3)
+                orientation: 'vertical'
+                spacing: [50, 50]
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 3
+                    ItcInput:
+                        id: pseudo_input
+                        hint_text: 'Votre email'
+                        font_size: '18sp'
+                        multiline: False
+                        # on_focus: root.restore_focus()
+                    ItcInput:
+                        id: pwd_input
+                        hint_text: 'Mot de passe'
+                        font_size: '18sp'
+                        multiline: False
+                        password: True
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: (1, 20)
+                    But:
+                        size_hint_y: .6
+                        text: 'connexion'
+                        font_size: '22sp'
+                        background_normal:'img/btn/but_blue.png'
+                        background_down:'img/btn/but_blue_down.png'
+                        on_press: root.validate()
+
+<ItcInput@TextInput>:
+    background_normal:'img/btn/textinput.png'
+    background_active:'img/btn/textinput_active.png'
+    background_disabled_normal:'img/btn/textinput_disabled.png'
+    background_disabled_active:'img/btn/textinput_disabled.png'
+    font_size: '18sp'
+    #hint_text_color: (1, 1, 0, 1)
+    write_tab: False
+    cursor_color: 0.498, 0.549, 0.552,1.0
+    foreground_color: 0.204, 0.286, 0.369, 1.0
+    selection_color: 0.925, 0.941, 0.937, 0.5
+    #padding: '16dp', '16dp'
+    #spacing: '16sp', '16sp'
+    halign:'justify'
+    border: 10,10,10,10
+
+<RegisterScreen>:
+    Bckgd:
+        source: 'img/itc_img1.jpg'
+        FloatLayout:
+            BoxLayout:
+                pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+                size_hint: (.7, .5)
+                orientation: 'vertical'
+                spacing: [50, 50]
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 6
+                    size_hint_y: .7
+                    ItcInput:
+                        id: name_id
+                        hint_text: 'nom prenoms'
+                        font_size: '18sp'
+                        multiline: False
+                    ItcInput:
+                        id: email_id
+                        hint_text: 'email'
+                        font_size: '18sp'
+                        multiline: False
+                    ItcInput:
+                        id: nbr_id
+                        hint_text: 'no: ex. 48-078-646'
+                        font_size: '18sp'
+                        multiline: False
+                    ItcInput:
+                        id: pwd_id
+                        hint_text: 'password'
+                        font_size: '18sp'
+                        multiline: False
+                        password: True
+                    ItcInput:
+                        id: pwda_id
+                        hint_text: 'password again'
+                        font_size: '18sp'
+                        multiline: False
+                        password: True
+                BoxLayout:
+                    size_hint_y: .3
+                    orientation: 'vertical'
+                    padding: 1, 20
+                    But:
+                        size_hint_y: .6
+                        text: 'Enregistrer'
+                        font_size: '22sp'
+                        background_normal:'img/btn/but_blue.png'
+                        background_down:'img/btn/but_blue_down.png'
+                        on_press: root.validate()
+
+<RecetteScreen>:
+    Bckgd:
+        source: 'img/colors.png'
+        orientation: 'vertical'
+        #spacing: 10, 10
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 0
+            size_hint_y: .4
+            BoxLayout:
+
+                padding:  8, 0, 8, 0
+                orientation: 'vertical'
+                Label:
+                    text: 'titre'
+                    id: title_id
+                    #size_hint_x: .3
+                    font_size: 18
+                    #underline: True
+                ItcInput:
+            BoxLayout:
+                #size_hint_y: .25
+                padding:  8, 0, 8, 0
+                orientation: 'vertical'
+                Label:
+                    text: 'Ingredients'
+                    id: ingredient_id
+                    size_hint_x: .3
+                    font_size: 18
+                SegInput:
+        BoxLayout:
+            size_hint_y: .5
+            padding: 8, 0, 8, 0
+            orientation: 'vertical'
+            size_hint_y: .4
+            Label:
+                text: 'Preparation'
+                halign: 'right'
+                id: preparation_id
+                size_hint_y: .2
+                font_size: 18
+            ItcInput:
+                id: preparation_input
+        BoxLayout:
+            size_hint_y: .2
+            FloatLayout:
+                size_hint_y: .4
+                But:
+                    pos_hint: {'right': 1, 'top': 2}
+                    size_hint: .25, .8
+                    font_size: '18sp'
+                    text: "Ajouter"
+                    background_normal:'img/btn/but_blue.png'
+                    background_down:'img/btn/but_blue_down.png'
